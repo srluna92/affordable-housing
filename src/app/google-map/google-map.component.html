@@ -1,0 +1,25 @@
+<ngui-map [options]="mapOptions" (click)="mapClick($event)">
+  <div id="floating-panel">
+    <button (click)="toggleHeatmap()">Toggle Heatmap</button>
+    <button (click)="changeGradient()">Change gradient</button>
+    <button (click)="changeRadius()">Change radius</button>
+    <button (click)="changeOpacity()">Change opacity</button>
+    <button (click)="addBounds()">Add Bounds</button>
+    <button (click)="toggleDataLayer()">Add Data Layer</button>
+  </div>
+  <heatmap-layer [data]="points"></heatmap-layer>
+  <data-layer geoJsonUrl="/assets/map.json"></data-layer>
+  <marker *ngFor="let pos of positions; let i = index" [position]="pos.geometry.location" (click)="removeMarker(i)"></marker>
+  <div *ngFor="let p of paths">
+    <map-polygon [paths]="p"
+      [strokeColor]="'#FFC107'"
+      [strokeOpacity]="0.8"
+      [strokeWeight]="2"
+      [fillColor]="'#FFC107'"
+      [fillOpacity]="0.35"
+      (click)="polygonClick($event)"></map-polygon>    
+  </div>
+</ngui-map>
+<button (click)="loadRandomPoints()">Load Random Points</button>
+<br/>
+<button (click)="addPoint()">Add Point</button>

@@ -3,7 +3,13 @@
 // The list of file replacements can be found in `angular.json`.
 
 export const environment = {
-  production: false
+  production: false,
+  mapApiKey: 'https://maps.google.com/maps/api/js?key=AIzaSyCFYczikiy8amTcAnOntLGal_EHEwOKNLg',
+  defaultMap: {
+    center: {lat: 41.2565, lng: -95.9345},
+    zoom: 12,
+    mapTypeId: 'roadmap'
+  }
 };
 
 /*
